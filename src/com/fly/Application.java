@@ -2,6 +2,8 @@ package com.fly;
 
 
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicReference;
+import java.util.concurrent.atomic.AtomicStampedReference;
 
 /**
  * Created with IntelliJ IDEA
@@ -14,6 +16,11 @@ public class Application {
 
     public static void main(String[] args) {
         PrintChar.printChar2();
+        AtomicInteger a = new AtomicInteger();
+        a.incrementAndGet();
+        //AtomicStampedReference
+//        AtomicReference
+
     }
 
 }
