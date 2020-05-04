@@ -1,10 +1,11 @@
-package com.fly;
+package com.fly.lockUser;
 
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
+ * 实现26个字母交替打印的2中方法
  * Created with IntelliJ IDEA
  * Created By lifeifei
  * Date: 2020/5/1
@@ -13,9 +14,7 @@ import java.util.concurrent.locks.ReentrantLock;
 public class PrintChar {
 
     static int index = 0;
-    /**
-     * 26个字母交替打印
-     */
+
     public static void printChar() {
 
         final Object o = new Object();
@@ -67,8 +66,6 @@ public class PrintChar {
         Lock lock = new ReentrantLock();
         Condition condition1 = lock.newCondition();
         Condition condition2 = lock.newCondition();
-
-
 
         Thread t1 = new Thread(() -> {
             try {

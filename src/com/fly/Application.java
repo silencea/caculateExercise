@@ -1,9 +1,9 @@
 package com.fly;
 
 
+import com.fly.lockUser.PrintChar;
+
 import java.util.concurrent.atomic.AtomicInteger;
-import java.util.concurrent.atomic.AtomicReference;
-import java.util.concurrent.atomic.AtomicStampedReference;
 
 /**
  * Created with IntelliJ IDEA

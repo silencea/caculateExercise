@@ -43,6 +43,7 @@ public class BaseClassAnalysis {
 
         Map map1 = new WeakHashMap<>();
         Map map2 = new HashMap<>();
+        Map map3 = new ConcurrentHashMap(10);
 
 
     }
