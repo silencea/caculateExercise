@@ -1,4 +1,4 @@
-package com.fly.lockUser;
+package com.fly.other;
 
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;

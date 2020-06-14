@@ -1,7 +1,7 @@
 package com.fly;
 
 
-import com.fly.lockUser.PrintChar;
+import com.fly.other.PrintChar;
 
 import java.util.concurrent.atomic.AtomicInteger;
 

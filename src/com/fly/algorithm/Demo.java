@@ -1,4 +1,4 @@
-package com.fly.caculate;
+package com.fly.algorithm;
 
 /**
  * Created with IntelliJ IDEA
@@ -9,7 +9,7 @@ package com.fly.caculate;
 public class Demo {
 
     public static void main(String[] args) {
-        int[] array = {1,5,2,6,8,3,4};
+        int[] array = {1, 5, 2, 6, 8, 3, 4};
         quickSort(array);
         printArr(array);
     }
@@ -20,6 +20,7 @@ public class Demo {
      * 对每一对相邻元素作同样的工作，从开始第一对到结尾的最后一对。在这一点，最后的元素应该会是最大的数。
      * 针对所有的元素重复以上的步骤，除了最后一个。
      * 持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较。
+     *
      * @param numbers 需要排序的整型数组
      */
     public static void bubbleSort(int[] numbers) {
@@ -36,7 +37,6 @@ public class Demo {
             }
         }
     }
-
 
 
     /**
@@ -68,9 +68,10 @@ public class Demo {
      * 空间复杂度O(1) 时间复杂度O(n2)
      * 通过扫描前面已排序的子列表，将位置i处的元素定位到从0到i的子列表之内的正确的位置上
      * 在列表“近似排序”时，插入排序仍然是线性算法
+     *
      * @param arr
      */
-    public static void insertSort(int[] arr){
+    public static void insertSort(int[] arr) {
         int i, j;
         int n = arr.length;
         int target;
@@ -78,8 +79,8 @@ public class Demo {
         for (i = 1; i < n; i++) {
             j = i;
             target = arr[i];
-            while (j > 0 && target < arr[j-1]){
-                arr[j] = arr[j-1];
+            while (j > 0 && target < arr[j - 1]) {
+                arr[j] = arr[j - 1];
                 j--;
             }
             arr[j] = target;
@@ -90,11 +91,12 @@ public class Demo {
     /**
      * 快速排序 快速排序是不稳定的。最理想情况算法时间复杂度O(nlog2n)，最坏O(n2)
      * 基本思想：选择一个基准元素,通常选择第一个元素或者最后一个元素,通过一趟扫描，
-     *
+     * <p>
      * 将待排序列分成两部分,一部分比基准元素小,一部分大于等于基准元素,此时基准元素在其
-     *
+     * <p>
      * 排好序后的正确位置,然后再用同样的方法递归地排序划分的两部分。
      * 快速排序是对冒泡排序的一种改进，平均时间复杂度是O(nlogn)
+     *
      * @param arr
      * @return
      */
@@ -112,16 +114,16 @@ public class Demo {
         }
     }
 
-    private static int getMiddle(int[] list,int low , int high){
+    private static int getMiddle(int[] list, int low, int high) {
         int temp = list[low];
 
-        while (low < high){
-            while(low < high && list[high] > temp){
+        while (low < high) {
+            while (low < high && list[high] > temp) {
                 high--;
             }
             list[low] = list[high];
 
-            while(low < high && list[low] < temp){
+            while (low < high && list[low] < temp) {
                 low++;
             }
             list[high] = list[low];
@@ -131,15 +133,66 @@ public class Demo {
     }
 
 
+    /**
+     * 二分查找--必须是有序的数组
+     * 算法思想：又叫折半查找，要求待查找的序列有序。每次取中间位置的值与待查关键字比较，
+     * 如果中间位置的值比待查关键字大，则在前半部分循环这个查找的过程，如果中间位置的值比待查关键字小，
+     * 则在后半部分循环这个查找的过程。直到查找到了为止，否则序列中没有待查的关键字。 时间复杂度为 O(logN)
+     *
+     * @param array
+     * @param a
+     * @return
+     */
+    //查找第一个元素出现的位置（元素允许重复）
+    public static int biSearch(int[] array, int a) {
+        int n = array.length;
+        int low = 0;
+        int high = n - 1;
+        int mid = 0;
+        while (low < high) {
+            mid = (low + high) / 2;
+            if (array[mid] < a) {
+                low = mid + 1;
+            } else {
+                high = mid;
+            }
+        }
+        if (array[low] != a) {
+            return -1;
+        } else {
+            return low;
+        }
+
+    }
 
 
+    //查询元素最后一次出现的位置
+    public static int biSearch2(int[] array, int a) {
+        int n = array.length;
+        int low = 0;
+        int hi = n - 1;
+        int mid = 0;
+        while (low < hi) {
+            mid = (low + hi + 1) / 2;
+            if (array[mid] <= a) {
+                low = mid;
+            } else {
+                hi = mid - 1;
+            }
+        }
+
+        if (array[low] != a) {
+            return -1;
+        } else {
+            return hi;
+        }
+    }
 
     public static void printArr(int[] array) {
         for (int i : array) {
             System.out.print(i + " ");
         }
     }
-
 
 
 }
